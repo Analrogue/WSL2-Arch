@@ -1,0 +1,72 @@
+# Path 
+# ~/.zshrc
+# ~/.functionrc
+# ~/.vimrc
+
+# Alias Group List
+alias aliasfunction='echo -e " \n\
+exa - aliasexa \n\
+find - aliasfind \n\
+font - aliasfont \n\
+pkg - aliaspkg \n\
+"'
+
+# Exa
+alias ls='echo exa --icons | colout "(\w|\W)" rainbow  && exa --icons'
+alias lsal='echo exa --icons --long --all | colout "(\w|\W)" rainbow && exa --icons --long --all'
+alias lsl='echo exa --icons -lbF --git | colout "(\w|\W)" rainbow && exa --icons -lbF --git'
+alias lsll='echo exa --icons -lbGF --git | colout "(\w|\W)" rainbow && exa --icons -lbGF --git'
+alias lsllm='echo exa --icons -lbGF --git --sort=modified | colout "(\w|\W)" rainbow && exa --icons -lbGF --git --sort=modified'
+alias lslS='echo exa --icons -1 | colout "(\w|\W)" rainbow && exa --icons -1'
+alias lslt='echo exa --icons --tree --level=2 | colout "(\w|\W)" rainbow && exa --icons --tree --level=2'
+alias aliasexa='echo -e "ls=exa --icons \n\
+lsal=exa --icons --long --all \n\
+lsl=exa --icons -lbF --git \n\
+lsll=exa --icons -lbGF --git \n\
+lsllm=exa --icons -lbGF --git --sort=modified \n\
+lslS=exa --icons -1 \n\
+lslt=exa --icons --tree --level=2"'
+
+
+# Sudo (caution: following sudo, space)
+alias sudo='sudo '
+
+# Find
+#alias fd='find / ! \( -path "/mnt" -prune \) -name '"$1"
+#alias aliasfind='echo -e '\''alias: fd, command: find / ! \( -path "/mnt" -prune \) -name '\''\"\$1\"'
+
+
+alias zshrc='vim ~/.zshrc'
+alias configrc='vim ~/.configrc'
+alias vimrc='vim ~/.vimrc'
+alias aliasrc='vim ~/.aliasrc'
+alias functionrc='vim ~/.functionrc'
+
+# Pkg
+# All installed file for specific package
+alias pacmanall='sudo pacman -Syu'
+alias pkgfile='yay -Ql'" $*"
+alias pkginstall='yay -Qi | grep '"$*"
+alias aliaspkg='echo -e "Pacman 모든 패키지 업데이트 : pacmanall : sudo pacman -Syu \n\
+패키지 관련 모든파일 : pkgfile : yay -Ql \n\
+설치된 패키지 확인 : pkginstall : command: yay -Qi | grep  \n\
+cargo로 설치된 패키지 : cargo install --list \n\
+pipx로 설치된 패키지 : pipx list \n\
+"'
+
+
+
+# Font
+alias fontlist='fc-list'
+alias fontlistkr='fc-list :lang=ko'
+alias fontsearch='fc-list | grep '"$*"
+alias fontcache='fc-cache -f -v'
+alias fontdir='echo /usr/share/fonts/'
+alias aliasfont='echo -e "사용가능한 폰트확인 - alias: fontlist, command: fc-list \n\
+시스템에 있는 설치된 폰트캐쉬 - alias: fontcache, command: fc-cache -f -v \n\
+한글폰트확인 - alias: fontlistkr, command: fc-list :langko \n\
+폰트위치 - alias: fontdir \n\
+폰트검색 - alias: fontsearch"'
+
+
+

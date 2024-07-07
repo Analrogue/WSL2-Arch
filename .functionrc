@@ -1,0 +1,130 @@
+# Path
+# ~/.zshrc
+# ~/.aliasrc
+# ~/.vimrc
+
+../.() {
+clear && echo "source zshrc .." | colout "(\w|\W)" rainbow && source ~/.zshrc
+}
+
+# Output Colorization
+
+#grepcc() {
+#grep --color=always -E "$1|$" $2
+#}
+#mancc() {
+#man $1 | grepc '(^|\s)(\-){1,2}(\w+(\-){0,2}\w*(\-){0,2}\w*={0,1}\w*|\s)'| less -R
+#}
+
+#grep
+grepc() {
+grep -E "$1|$" $2 | colout "^.*$" Random
+}
+
+#man
+manc() {
+man $1 | colout "^.*$" Random | less -R
+}
+
+#--help
+helpc() {
+$1 --help | colout "^.*$" Random
+}
+
+
+
+# Find
+fd() {
+echo "find / ! \( -path '/mnt' -prune \) -name 'keyword'"
+sudo find / ! \( -path '/mnt' -prune \) -name "$1" 2>&1 | grep -v "File system loop detected"
+}
+alias fnd='find / ! \( -path "/mnt" -prune \) -name'
+alias aliasfind='echo -e "alias: fd or fnd, command: find / ! \( -path "/mnt" -prune \) -name"'
+
+# Github
+cdgit() {
+cd ~/.dotfiles/.github/WSL2-Arch/
+}
+
+gitpush() {
+echo 'pushd ~/.dotfiles/.github/WSL2-Arch/'
+pushd ~/.dotfiles/.github/WSL2-Arch/
+echo '>> git add .'
+git add .
+echo -e "\n"'>> git commit -m '\''arch basic configuration file'\'
+git commit -m 'arch basic configuration file'
+echo -e "\n"'>> git push'
+git push
+echo -e "\n"'>> git status'
+git status
+pushd
+}
+
+gitremove() {
+echo '>> git pull origin main'
+git pull origin main
+echo -e "\n"'>> git rm '"$@"
+git rm $@
+echo -e "\n"'>> git commit -m '\''remove '\'"$@"
+git commit -m 'remove '"$@"
+echo -e "\n"'>> git push origin main'
+git push origin main
+echo -e "\n"'>> git status'
+git status
+}
+
+gitproblem() {
+echo '>> git config pull.rebase false'
+git config pull.rebase false
+}
+
+alias push='cdgit && gitpush && ~'
+
+alias aliasgit='echo -e "cdgit : cd ~/.dotfiles/.github/WSL2-Arch/ \n\
+gitpush : git add . && git commit -m && git push \n\
+gitremove : git pull && git rm (file) && git commit -m && git push origin main \n\
+gitproblem : git config pull.rebase false (remote origin branch change import and merge local) \n\
+"'
+
+
+
+# Randomize Cowsay Style
+cowsayrandom() {
+if type shuf > /dev/null; then
+  cowfile="$(cowsay -l | sed "1 d" | tr ' ' '\n' | shuf -n 1)"
+else
+  cowfiles=( $(cowsay -l | sed "1 d") );
+  cowfile=${cowfiles[$(($RANDOM % ${#cowfiles[*]}))]}
+fi
+cowsay -f "$cowfile"
+}
+
+# fortune + cowsayrandom + lolcat
+fortunecowsayrandom() {
+  fortune | cowsayrandom | lolcat
+}
+
+# cowsay와 pony random execute
+randomcommand1() {
+  command1="rxfetch"
+  command2="macchina"
+  command3="rsftch"
+  #command2="fortunecowsayrandom"
+  #command2="fortune | ponysay | lolcat"
+  random_choice=$((RANDOM%3)) # 0,1,2 Random Generate
+  if [ $random_choice -eq 0 ]
+  then
+    eval $command1
+  elif [ $random_choice -eq 1 ]
+  then
+    eval $command2
+  else 
+    eval $command3
+  fi
+}
+
+# Execution
+# randomcommand1
+# rxfetch requirement
+# yay -S ttf-material-design-icons
+# fc-cache -fv

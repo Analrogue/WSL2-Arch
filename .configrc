@@ -1,0 +1,59 @@
+# Source
+source ~/.aliasrc
+source ~/.functionrc
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+# Option Configuration
+# history no 'first space', 'duplicate'
+export HISTCONTROL=ignoreboth
+
+
+
+
+# Input
+#bind incorrect 'delete' key into original work
+bindkey "^[[3~" delete-char
+
+
+
+# Display
+# Colored Grep_Colors
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+export GREP_COLORS='ms=31:mc=32:sl=33:cx=36:fn=33:ln=34:bn=37:se=32'
+#export GREP_COLORS='ms=31:mc=32:sl=35:cx=36:fn=33:ln=34:bn=37:se=32'
+
+#Colored Man Page Reference
+#https://wiki.archlinux.org/title/Color_output_in_console#man
+
+# Manpager (Default with Color. Config File ~/.mostrc)
+export MANPAGER="most"
+
+# Colored Man Page (with less)
+#export MANPAGER="less"
+#export MANPAGER="less -R --use-color -Dd+r -Du+b"
+#export MANROFFOPT="-P -c"
+
+# Colored Man Page (with bat)
+#export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+#export MANROFFOPT="-c"
+
+
+
+# PATH
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/.local/share:$HOME/.local/bin:$PATH"
+
+
+
+# Startup
+# ~/.functionrc
+# nerdfetch
+randomcommand1
+#ascii-image-converter -C -H 20 https://e7.pngegg.com/pngimages/280/729/png-clipart-mashimaro-hello-kitty-drawing-cartoon-mashimaro-white-face-thumbnail.png
+#curl ko.wttr.in/Seoul
+
+
