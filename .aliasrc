@@ -8,7 +8,8 @@ alias aliasfunction='echo -e " \n\
 exa - aliasexa \n\
 find - aliasfind \n\
 font - aliasfont \n\
-pkg - aliaspkg \n\
+package - aliaspkg \n\
+weather - aliasweather \n\
 "'
 
 # Exa
@@ -69,4 +70,12 @@ alias aliasfont='echo -e "사용가능한 폰트확인 - alias: fontlist, comman
 폰트검색 - alias: fontsearch"'
 
 
-
+alias aliasweather='echo -e "weather1 : seoul \n\
+weather2 : nationwide \n\
+weather3 : time-summary \n\
+weahter4 : time-chart \n\
+"'
+alias weather1="curl 'ko.wttr.in/서울?format=%l:+%m+%c+바람:%w+기온:%t+습도:%h\n'"
+alias weather2="curl -s 'ko.wttr.in/{서울,인천,춘천,강릉,청주,대전,전주,광주,대구,울산,부산,제주}?format=%l:+%c+바람:%w+기온:%t+습도:%h+체감온도:%f\n'"
+alias weather3="curl ko.wttr.in/서울"
+alias weather4="curl 'v2d.wttr.in/Seoul'"
