@@ -110,17 +110,21 @@ randomcommand1() {
   command1="rxfetch"
   command2="macchina"
   command3="rsftch"
+  command4="nerdfetch"
   #command2="fortunecowsayrandom"
   #command2="fortune | ponysay | lolcat"
-  random_choice=$((RANDOM%3)) # 0,1,2 Random Generate
+  random_choice=$((RANDOM%4)) # 0,1,2 Random Generate
   if [ $random_choice -eq 0 ]
   then
     eval $command1
   elif [ $random_choice -eq 1 ]
   then
     eval $command2
+  elif [ $random_choice -eq 2 ]
+  then 
+    eval $command3	  
   else 
-    eval $command3
+    eval $command4  
   fi
 }
 
