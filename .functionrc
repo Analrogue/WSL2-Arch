@@ -48,8 +48,8 @@ cd ~/.dotfiles/.github/WSL2-Arch/
 }
 
 gitpush() {
-echo 'pushd ~/.dotfiles/.github/WSL2-Arch/'
-pushd ~/.dotfiles/.github/WSL2-Arch/
+echo 'cd ~/.dotfiles/.github/WSL2-Arch/'
+cd ~/.dotfiles/.github/WSL2-Arch/
 echo '>> git add .'
 git add .
 echo -e "\n"'>> git commit -m '\''arch basic configuration file'\'
@@ -58,7 +58,7 @@ echo -e "\n"'>> git push'
 git push
 echo -e "\n"'>> git status'
 git status
-pushd
+cd -
 }
 
 gitremove() {
