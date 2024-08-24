@@ -53,6 +53,13 @@ alias aliaspkg='echo -e "Pacman 모든 패키지 업데이트 : pacmanall : sudo
 설치된 패키지 확인 : pkginstall : command: yay -Qi | grep  \n\
 cargo로 설치된 패키지 : cargo install --list \n\
 pipx로 설치된 패키지 : pipx list \n\
+빠른 미러리스트 갱신 : reflector \n\
+가장 최근에 싱크된 미러 5개 (속도 순): \n\
+reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist \n\
+HTTP나 HTTPS로 싱크된 200개 (속도 순): \n\
+reflector --latest 200 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist \n\
+12시간 이내에 싱크된 HTTPS 미러 (한국이나 일본) (속도 순): \n\
+reflector --country "South Korea,Japan" --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist \n\
 "'
 
 
